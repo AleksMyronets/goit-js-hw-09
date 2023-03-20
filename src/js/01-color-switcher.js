@@ -1,40 +1,35 @@
-const body = document.querySelector('body');
-const startBtn = document.getElementById('srart-btn');
-const stopBtn = document.getElementById('stop-btn');
+// Зробимо посилання на кнопки "Start" та "Stop"
+
+const startButton = document.querySelector('[data-start]');
+const stopButton = document.querySelector('[data-stop]');
 
 let intervalId;
 
-// Додамо функцію для генерування випадкового кольору
+// Функція для генеруванн випадкового кольору
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, 0)}`;
 }
 
-// Додамо слухача подій для кнопки "Start", зробимо активацію та дективацію кнопки "Start" та використаємо setInterval для зміни кольору раз на секунду
+// Додаємо слухачів подій на кнопки "Start" та "Stop"
 
-startBtn = addEventListener('click', () => {
+startButton.addEventListener('click', startColorChange);
+stopButton.addEventListener('click', stopColorChange);
 
-    startBtn.disabled = true;
-    stopBtn.disabled = false;
+// Встановлюємо інтервал для зміни кольору та робимо кнопку "Start" неактивною після натискання
 
-    intervalId = setInterval(() => {
-    body.style.backgroundColor = getRandomHexColor();
-    }, 1000);
+function startColorChange() {
+  startButton.disabled = true;
+  stopButton.disabled = false;
+  intervalId = setInterval(() => {
+    document.body.style.backgroundColor = getRandomHexColor();
+  }, 1000);
+}
 
-});
+// Зупиняємо зміну кольору фону за допомогою кнопки "Stop" та очищуємо інтервал 
 
-// Додамо слухача подій для кнопки "Stop", зробимо активацію та дективацію кнопки "Stop" та зупинемо зміну кольору
-
-stopBtn = addEventListener('click', () => {
-    
-    startBtn.disabled = false;
-    stopBtn.disable = true;
-
-    clearInterval(intervalId);
-
-});
-
-
-
-
-
+function stopColorChange() {
+  startButton.disabled = false;
+  stopButton.disabled = true;
+  clearInterval(intervalId);
+}
