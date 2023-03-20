@@ -1,6 +1,6 @@
 const body = document.querySelector('body');
-const startBtn = document.getElementById('srartBtn');
-const stopBtn = document.getElementById('stopBtn');
+const startBtn = document.getElementById('srart-btn');
+const stopBtn = document.getElementById('stop-btn');
 
 let intervalId;
 
