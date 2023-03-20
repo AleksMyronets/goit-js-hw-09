@@ -1,2 +1,0 @@
-const e=document.querySelector("body"),t=document.getElementById("srart-btn"),d=document.getElementById("stop-btn");let n;t=addEventListener("click",(()=>{t.disabled=!0,d.disabled=!1,n=setInterval((()=>{e.style.backgroundColor=`#${Math.floor(16777215*Math.random()).toString(16).padStart(6,0)}`}),1e3)})),d=addEventListener("click",(()=>{t.disabled=!1,d.disable=!0,clearInterval(n)}));
-//# sourceMappingURL=01-color-switcher.04869b21.js.map
